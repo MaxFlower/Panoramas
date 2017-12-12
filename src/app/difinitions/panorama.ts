@@ -17,20 +17,45 @@ export interface PanoramaWatermark {
   show: boolean;
 }
 
-export interface PanoramaImage {
+export interface PanoramaImagesThumbnails {
+  height: number;
+  width: number;
+  url: string;
+  content_type: string;
+}
 
+export interface PanoramaImagesCubemaps {
+  size: number;
+  lod: number;
+  content_type: string;
+  format: string;
+  base_url: string;
+}
+
+export interface PanoramaImagesPreview {
+  width: number;
+  content_type: string;
+  url: string;
+}
+
+export interface PanoramaImages {
+  thumbnails: Array<PanoramaImagesThumbnails>;
+  cubemaps: Array<PanoramaImagesCubemaps>;
+  previews: Array<PanoramaImagesPreview>;
+  equirectangulars: Array<number>;
+  orientation: Array<number>;
 }
 
 export interface PanoramaAuthor {
   type: PanoramaAuthorType;
-  id: string;
+  readonly id: string;
   self: string;
   data: PanoramaAuthorData;
 }
 
 export interface PanoramaData {
   readonly image_id: string;
-  images: PanoramaImage;
+  images: PanoramaImages;
   title: string;
   description: string;
   created_at: string;
