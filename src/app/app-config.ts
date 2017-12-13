@@ -5,7 +5,7 @@ import { Config } from './difinitions/config';
 @Injectable()
 export class AppConfig {
 
-  public path: Config = {
+  public serverConfig: Config = {
     apiUrl: 'http://api3-dev.panono.com/'
   };
 }

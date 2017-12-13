@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-sidebar.component.css']
 })
 export class MainSidebarComponent implements OnInit {
+  public title: string = 'Sidebar';
 
   constructor() { }
 

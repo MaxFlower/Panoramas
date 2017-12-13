@@ -22,6 +22,6 @@ import { SelectorComponent } from './common/components/selector/selector.compone
     PanoramasModule
   ],
   providers: [ AppConfig ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
