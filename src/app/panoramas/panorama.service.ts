@@ -16,7 +16,7 @@ export class PanoramaService {
     private http: HttpClient
   ) { }
 
-  private panoramasCache$: Observable<Array<Panorama>> = this.http.get<Response>(`${this.config.serverConfig.apiUrl}/explore`)
+  private panoramasCache$: Observable<Array<Panorama>> = this.http.get<Response>(`${this.config.appConfig.apiUrl}/explore`)
     .map(res => res.items)
     .publishReplay(1)
     .refCount();

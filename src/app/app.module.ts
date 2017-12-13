@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppConfig } from './app-config';
 import { PanoramasModule } from './panoramas/panoramas.module';
@@ -9,6 +10,7 @@ import { MainSidebarComponent } from './components/main-sidebar/main-sidebar.com
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SelectorComponent } from './common/components/selector/selector.component';
 import { PanoramaService } from './panoramas/panorama.service';
+import { SettingsService } from './services/settings.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { PanoramaService } from './panoramas/panorama.service';
   ],
   imports: [
     BrowserModule,
-    PanoramasModule
+    FormsModule,
+    PanoramasModule,
+    ReactiveFormsModule
   ],
-  providers: [ AppConfig, PanoramaService ],
+  providers: [ AppConfig, PanoramaService, SettingsService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
