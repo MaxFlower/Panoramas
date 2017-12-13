@@ -8,6 +8,7 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { MainSidebarComponent } from './components/main-sidebar/main-sidebar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SelectorComponent } from './common/components/selector/selector.component';
+import { PanoramaService } from './panoramas/panorama.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { SelectorComponent } from './common/components/selector/selector.compone
     BrowserModule,
     PanoramasModule
   ],
-  providers: [ AppConfig ],
+  providers: [ AppConfig, PanoramaService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
