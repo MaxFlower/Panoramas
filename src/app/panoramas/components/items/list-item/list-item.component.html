@@ -1,8 +1,12 @@
-<div class="well">
-  <div class="pull-left"> {{ item.data.title }} </div>
-  <div class="pull-left"> {{ item.data.created_at }} </div>
-  <div class="pull-right">
-    <button type="button" class="btn btn-success btn-md" *ngIf='!item.isFavorite' (click)='addToFavorites(item.id)'>Add</button>
-    <button type="button" class="btn btn-primary btn-md" *ngIf='item.isFavorite' (click)='removeFromFavorites(item.id)'>Favorite</button>
+<div class="col-sm-12">
+  <div class="well content">
+    <div class="flex-container">
+      <div class="list-title"> {{ item.data.title }} </div>
+      <div class="list-date"> {{ item.data.created_at | date: timestampFormat }} </div>
+      <div class="list-button">
+        <button type="button" class="btn btn-success btn-sm" *ngIf='!item.isFavorite' (click)='addToFavorites(item.id)'>Add</button>
+        <button type="button" class="btn btn-primary btn-sm" *ngIf='item.isFavorite' (click)='removeFromFavorites(item.id)'>Favorite</button>
+      </div>
+    </div>
   </div>
 </div>

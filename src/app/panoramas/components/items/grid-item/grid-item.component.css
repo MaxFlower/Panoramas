@@ -1,7 +1,65 @@
-.panorama-block {
-  background: lightyellow;
-  display: inline-block;
-  height: 170px;
-  padding: 0;
-  width: 270px;
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0)
+  }
 }
+
+@-moz-keyframes scroll {
+  0% {
+    -moz-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -moz-transform: translate(-100%, 0);
+    transform: translate(-100%, 0)
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0)
+  }
+}
+
+.panorama-block .well {
+  color: azure;
+  font-size: 12px;
+  height: 150px;
+  padding: 30px;
+}
+
+.margin {
+  margin-bottom: 50px;
+}
+
+.grid-title {
+  cursor: pointer;
+  display: block;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 49%;
+}
+
+.grid-date {
+  text-align: right;
+  width: 49%;
+}
+
+.grid-title span:hover {
+  display: inline-block;
+  padding-left: 100%;
+  -webkit-animation: scroll 5s infinite linear;
+  -moz-animation: scroll 5s infinite linear;
+  animation: scroll 5s infinite linear;
+}
+
+

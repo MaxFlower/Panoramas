@@ -23,25 +23,37 @@ export class PanoramaService {
     .refCount();
 
   public getPanoramas(): Observable<Array<Panorama>> {
-     return this.panoramasCache$;
+    // this.setFavoriteProperty();
+    return this.panoramasCache$;
   }
 
-  getFavorites(): Array<string> {
+  public getFavorites(): Array<string> {
     this.favorites = localStorage.getItem('Favorites') ? localStorage.getItem('Favorites').split(',') : [];
     return this.favorites;
   }
 
-  addFavorite(id: string): void {
+  public addFavorite(id: string): void {
     this.favorites.push(id);
     localStorage.setItem('Favorites', this.favorites.join(','));
   }
 
-  removeFavorite(id: string): void {
+  public removeFavorite(id: string): void {
     const it: number = this.favorites.indexOf(id);
     if (it !== -1) {
       this.favorites.splice(it, 1);
       localStorage.setItem('Favorites', this.favorites.join(','));
     }
+  }
+
+  public getTimestampFormat(): string {
+    return this.config.appConfig.timestampFormat || 'dd-mm-yyyy';
+  }
+
+  private setFavoriteProperty(): void {
+    this.getFavorites();
+    this.getPanoramas().map((item: any) => {
+      item.isFavorite = this.favorites.indexOf(item.id) !== -1;
+    });
   }
 
 }

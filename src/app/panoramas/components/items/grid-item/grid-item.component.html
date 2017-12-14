@@ -1,12 +1,15 @@
-<div class="panorama-block e2e-trusted-url">
-  <div class="">
-    <div class="pull-right">
-      <button type="button" class="btn btn-success btn-md" *ngIf='!item.isFavorite' (click)='addToFavorites(item.id)'>Add</button>
-      <button type="button" class="btn btn-primary btn-md" *ngIf='item.isFavorite' (click)='removeFromFavorites(item.id)'>Favorite</button>
+<div class="panorama-block col-sm-4">
+  <div class="well" [ngStyle]="{'background-image':'url(' + item.data.images.thumbnails[0].url +')', 'background-size': 'cover'}">
+    <div class="row">
+      <div class="pull-right">
+        <button type="button" class="btn btn-success btn-md" *ngIf='!item.isFavorite' (click)='addToFavorites(item.id)'>Add</button>
+        <button type="button" class="btn btn-primary btn-md" *ngIf='item.isFavorite' (click)='removeFromFavorites(item.id)'>Favorite</button>
+      </div>
     </div>
-  </div>
-  <div class="">
-    <div class="pull-left">Title</div>
-    <div class="pull-right">Date</div>
+    <div class="margin"></div>
+    <div class="row">
+      <div class="grid-title pull-left"><span>{{ item.data.title }}</span></div>
+      <div class="grid-date pull-right"> {{ item.data.created_at | date: timestampFormat }} </div>
+    </div>
   </div>
 </div>

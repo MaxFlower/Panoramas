@@ -11,9 +11,12 @@ import { Panorama } from '../../../../difinitions';
 export class DefaultItemComponent implements OnInit {
   @Input() public item: Panorama;
 
+  public timestampFormat: string;
+
   constructor(private panoramaService: PanoramaService) { }
 
   ngOnInit() {
+    this.timestampFormat = this.panoramaService.getTimestampFormat();
   }
 
   public addToFavorites(id: string): void {

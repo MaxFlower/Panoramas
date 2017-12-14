@@ -26,6 +26,8 @@ export class MainContentComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.subscriptions.push(this.panoramaService.getPanoramas().subscribe((next: Array<Panorama>) => {
       this.panoramas = next;
+
+      console.log('------------', next)
     }));
 
     this.subscriptions.push(this.settingsService.viewBehaviorSubject.subscribe((next: ViewSetting) => {
@@ -36,6 +38,9 @@ export class MainContentComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.settingsService.filterBehaviorSubject.subscribe((next: FilterSetting) => {
       console.log('filter: ', next);
       this.filterSetting = next;
+      // if (this.filterSetting === FilterSetting.OnlyFavorites) {
+      //   this.panoramas = this.panoramas.filter(item => item.isFavorite);
+      // }
     }));
   }
 

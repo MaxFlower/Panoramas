@@ -1,0 +1,21 @@
+.content {
+  padding: 5px 19px;
+}
+
+.content .flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.content .list-title {
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 45%;
+}
+
+.content .list-date {
+  width: 30%;
+}
