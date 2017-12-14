@@ -1,3 +1,8 @@
-<p>
-  list-item works!
-</p>
+<div class="well">
+  <div class="pull-left"> {{ item.data.title }} </div>
+  <div class="pull-left"> {{ item.data.created_at }} </div>
+  <div class="pull-right">
+    <button type="button" class="btn btn-success btn-md" *ngIf='!item.isFavorite' (click)='addToFavorites(item.id)'>Add</button>
+    <button type="button" class="btn btn-primary btn-md" *ngIf='item.isFavorite' (click)='removeFromFavorites(item.id)'>Favorite</button>
+  </div>
+</div>

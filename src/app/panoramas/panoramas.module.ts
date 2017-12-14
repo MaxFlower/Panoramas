@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { GridItemComponent } from './components/items/grid-item/grid-item.component';
 import { ListItemComponent } from './components/items/list-item/list-item.component';
+import { DefaultItemComponent } from './components/items/default-item/default-item.component';
 
 @NgModule({
   imports: [
@@ -11,12 +12,14 @@ import { ListItemComponent } from './components/items/list-item/list-item.compon
   ],
   declarations: [
     GridItemComponent,
-    ListItemComponent
+    ListItemComponent,
+    DefaultItemComponent
   ],
   exports: [
     HttpClientModule,
     GridItemComponent,
-    ListItemComponent
+    ListItemComponent,
+    DefaultItemComponent
   ],
   providers: []
 })

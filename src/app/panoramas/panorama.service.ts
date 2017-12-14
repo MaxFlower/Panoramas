@@ -10,6 +10,7 @@ import { Panorama, Response } from '../difinitions';
 
 @Injectable()
 export class PanoramaService {
+  private favorites: Array<string> = localStorage.getItem('Favorites') ? localStorage.getItem('Favorites').split(',') : [];
 
   constructor(
     private config: AppConfig,
@@ -23,6 +24,24 @@ export class PanoramaService {
 
   public getPanoramas(): Observable<Array<Panorama>> {
      return this.panoramasCache$;
+  }
+
+  getFavorites(): Array<string> {
+    this.favorites = localStorage.getItem('Favorites') ? localStorage.getItem('Favorites').split(',') : [];
+    return this.favorites;
+  }
+
+  addFavorite(id: string): void {
+    this.favorites.push(id);
+    localStorage.setItem('Favorites', this.favorites.join(','));
+  }
+
+  removeFavorite(id: string): void {
+    const it: number = this.favorites.indexOf(id);
+    if (it !== -1) {
+      this.favorites.splice(it, 1);
+      localStorage.setItem('Favorites', this.favorites.join(','));
+    }
   }
 
 }

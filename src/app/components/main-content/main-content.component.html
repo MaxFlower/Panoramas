@@ -1,3 +1,6 @@
-<p *ngFor="let panorama of panoramas">
-  {{ panorama.self }}
-</p>
+<div class="main-content">
+  <ng-template ngFor let-panorama [ngForOf]="panoramas">
+    <app-grid-item *ngIf="isGrid()" [item]='panorama'></app-grid-item>
+    <app-list-item *ngIf="isList()" [item]='panorama'></app-list-item>
+  </ng-template>
+</div>

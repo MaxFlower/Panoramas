@@ -72,4 +72,5 @@ export interface Panorama {
   readonly id: string;
   readonly self: string;
   data: PanoramaData;
+  isFavorite?: boolean;
 }

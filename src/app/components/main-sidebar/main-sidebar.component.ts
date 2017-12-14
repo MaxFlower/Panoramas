@@ -16,6 +16,7 @@ export class MainSidebarComponent implements OnInit, OnDestroy {
   public sidebarForm: FormGroup;
   public filterKeys: Array<string>;
   public viewKeys: Array<string>;
+  public isFormVisible: boolean = true;
 
   private filters: any = FilterSetting;
   private views: any = ViewSetting;

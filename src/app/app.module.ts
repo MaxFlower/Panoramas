@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { MainSidebarComponent } from './components/main-sidebar/main-sidebar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
-import { SelectorComponent } from './common/components/selector/selector.component';
 import { PanoramaService } from './panoramas/panorama.service';
 import { SettingsService } from './services/settings.service';
 
@@ -17,8 +16,7 @@ import { SettingsService } from './services/settings.service';
     AppComponent,
     MainHeaderComponent,
     MainSidebarComponent,
-    MainContentComponent,
-    SelectorComponent
+    MainContentComponent
   ],
   imports: [
     BrowserModule,
