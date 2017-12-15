@@ -7,6 +7,7 @@ import 'rxjs/add/operator/publishReplay';
 
 import { AppConfig } from '../app-config';
 import { Panorama, Response } from '../difinitions';
+import {isNullOrUndefined} from 'util';
 
 @Injectable()
 export class PanoramaService {
@@ -39,6 +40,7 @@ export class PanoramaService {
 
   public removeFavorite(id: string): void {
     const it: number = this.favorites.indexOf(id);
+
     if (it !== -1) {
       this.favorites.splice(it, 1);
       localStorage.setItem('Favorites', this.favorites.join(','));
@@ -49,11 +51,18 @@ export class PanoramaService {
     return this.config.appConfig.timestampFormat || 'dd-mm-yyyy';
   }
 
-  private setFavoriteProperty(): void {
-    this.getFavorites();
-    this.getPanoramas().map((item: any) => {
-      item.isFavorite = this.favorites.indexOf(item.id) !== -1;
-    });
+  public preparePanoramas(panoramas: Array<Panorama>): Array<Panorama> {
+    const checkedPanoramas: Array<Panorama> = [];
+
+    if (!isNullOrUndefined(panoramas)) {
+      this.getFavorites();
+      panoramas.map((item: Panorama) => {
+        item.isFavorite = this.favorites.indexOf(item.id) !== -1;
+        checkedPanoramas.push(item);
+      });
+    }
+
+    return checkedPanoramas;
   }
 
 }

@@ -1,5 +1,10 @@
 <nav class="navbar navbar-inverse fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="javascript:void(0)">{{ title }}</a>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="javascript:void(0)"><img alt="Brand" src="/assets/img/brand-logo.png"> {{ title }}</a>
+    </div>
+    <div class="nav-flex" *ngIf="isButtonAvailable">
+      <button type="button" class="btn btn-primary" (click)='showSidebar()'>Show sidebar</button>
+    </div>
   </div>
 </nav>

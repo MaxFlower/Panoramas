@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { GridItemComponent } from './components/items/grid-item/grid-item.component';
 import { ListItemComponent } from './components/items/list-item/list-item.component';
 import { DefaultItemComponent } from './components/items/default-item/default-item.component';
+import { FavoritePanoramasPipe } from './pipes/favorite-panoramas.pipe';
+
 
 @NgModule({
   imports: [
@@ -13,13 +15,15 @@ import { DefaultItemComponent } from './components/items/default-item/default-it
   declarations: [
     GridItemComponent,
     ListItemComponent,
-    DefaultItemComponent
+    DefaultItemComponent,
+    FavoritePanoramasPipe
   ],
   exports: [
     HttpClientModule,
     GridItemComponent,
     ListItemComponent,
-    DefaultItemComponent
+    DefaultItemComponent,
+    FavoritePanoramasPipe
   ],
   providers: []
 })

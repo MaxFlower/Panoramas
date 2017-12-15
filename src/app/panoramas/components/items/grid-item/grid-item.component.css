@@ -29,6 +29,10 @@
   }
 }
 
+.panorama-block {
+  padding-right: 0;
+}
+
 .panorama-block .well {
   color: azure;
   font-size: 12px;

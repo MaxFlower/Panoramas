@@ -8,9 +8,11 @@ import { ViewSetting, FilterSetting } from '../difinitions/setting';
 export class SettingsService {
   public filterBehaviorSubject: BehaviorSubject<FilterSetting> = new BehaviorSubject<FilterSetting>(FilterSetting.All);
   public viewBehaviorSubject: BehaviorSubject<ViewSetting> = new BehaviorSubject<ViewSetting>(ViewSetting.Grid);
+  public sidebarVisibilityBehaviorSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   private filter: FilterSetting = FilterSetting.All;
   private view: ViewSetting = ViewSetting.Grid;
+  private isFormVisible: boolean = true;
 
   constructor() { }
 
@@ -33,6 +35,17 @@ export class SettingsService {
     if (val !== this.view) {
       this.view = val;
       this.viewBehaviorSubject.next(val);
+    }
+  }
+
+  get sidebarVisibility(): boolean {
+    return this.isFormVisible;
+  }
+
+  set sidebarVisibility(val: boolean) {
+    if (val !== this.isFormVisible) {
+      this.isFormVisible = val;
+      this.sidebarVisibilityBehaviorSubject.next(val);
     }
   }
 

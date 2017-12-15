@@ -16,7 +16,6 @@ export class MainSidebarComponent implements OnInit, OnDestroy {
   public sidebarForm: FormGroup;
   public filterKeys: Array<string>;
   public viewKeys: Array<string>;
-  public isFormVisible: boolean = true;
 
   private filters: any = FilterSetting;
   private views: any = ViewSetting;
@@ -44,6 +43,10 @@ export class MainSidebarComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.sidebarForm.get('view').valueChanges.subscribe((val: ViewSetting) => {
       this.settingsService.viewSetting = val;
     }));
+  }
+
+  public hideSidebar() {
+    this.settingsService.sidebarVisibility = false;
   }
 
   public ngOnDestroy(): void {
