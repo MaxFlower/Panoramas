@@ -20,13 +20,11 @@ export class DefaultItemComponent implements OnInit {
   }
 
   public addToFavorites(id: string): void {
-    console.log('add to fav - id: ', id);
     this.panoramaService.addFavorite(id);
     this.item.isFavorite = true;
   }
 
   public removeFromFavorites(id: string): void {
-    console.log('remove to fav - id: ', id);
     this.panoramaService.removeFavorite(id);
     this.item.isFavorite = false;
   }

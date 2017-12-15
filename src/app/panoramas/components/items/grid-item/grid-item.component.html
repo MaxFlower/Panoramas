@@ -6,7 +6,7 @@
         <button type="button" class="btn btn-primary btn-md" *ngIf='item.isFavorite' (click)='removeFromFavorites(item.id)'>Favorite</button>
       </div>
     </div>
-    <div class="margin"></div>
+    <div class="margin-40"></div>
     <div class="row">
       <div class="grid-title pull-left"><span>{{ item.data.title }}</span></div>
       <div class="grid-date pull-right"> {{ item.data.created_at | date: timestampFormat }} </div>

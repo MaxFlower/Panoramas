@@ -26,7 +26,6 @@ export class MainContentComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.subscriptions.push(this.panoramaService.getPanoramas().subscribe((next: Array<Panorama>) => {
       this.panoramas = this.panoramaService.preparePanoramas(next);
-      console.log('panoramas: ', next);
     }));
 
     this.subscriptions.push(this.settingsService.viewBehaviorSubject.subscribe((next: ViewSetting) => {
