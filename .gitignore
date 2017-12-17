@@ -43,3 +43,6 @@ Thumbs.db
 
 # documentation
 /documentation
+
+# tests coverage
+/coverage
