@@ -16,33 +16,33 @@ export class SettingsService {
 
   constructor() { }
 
-  get filterSetting(): FilterSetting {
+  public get filterSetting(): FilterSetting {
     return this.filter;
   }
 
-  set filterSetting(val: FilterSetting) {
+  public set filterSetting(val: FilterSetting) {
     if (val !== this.filter) {
       this.filter = val;
       this.filterBehaviorSubject.next(val);
     }
   }
 
-  get viewSetting(): ViewSetting {
+  public get viewSetting(): ViewSetting {
     return this.view;
   }
 
-  set viewSetting(val: ViewSetting) {
+  public set viewSetting(val: ViewSetting) {
     if (val !== this.view) {
       this.view = val;
       this.viewBehaviorSubject.next(val);
     }
   }
 
-  get sidebarVisibility(): boolean {
+  public get sidebarVisibility(): boolean {
     return this.isFormVisible;
   }
 
-  set sidebarVisibility(val: boolean) {
+  public set sidebarVisibility(val: boolean) {
     if (val !== this.isFormVisible) {
       this.isFormVisible = val;
       this.sidebarVisibilityBehaviorSubject.next(val);

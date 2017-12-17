@@ -45,7 +45,7 @@ export class MainSidebarComponent implements OnInit, OnDestroy {
     }));
   }
 
-  public hideSidebar() {
+  public hideSidebar(): void {
     this.settingsService.sidebarVisibility = false;
   }
 

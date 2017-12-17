@@ -7,7 +7,7 @@ import { Panorama, FilterSetting } from '../../difinitions';
 })
 export class FavoritePanoramasPipe implements PipeTransform {
 
-  transform(value: Array<Panorama>, filterType: FilterSetting): Array<Panorama> {
+  public transform(value: Array<Panorama>, filterType: FilterSetting): Array<Panorama> {
     if (filterType === FilterSetting.All) {
       return value;
     } else {

@@ -15,7 +15,7 @@ export class DefaultItemComponent implements OnInit {
 
   constructor(private panoramaService: PanoramaService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.timestampFormat = this.panoramaService.getTimestampFormat();
   }
 
