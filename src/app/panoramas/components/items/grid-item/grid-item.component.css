@@ -29,11 +29,11 @@
   }
 }
 
-.panorama-block {
+.panorama-grid-element {
   padding-right: 0;
 }
 
-.panorama-block .well {
+.panorama-grid-element .well {
   color: azure;
   font-size: 12px;
   height: 150px;

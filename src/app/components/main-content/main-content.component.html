@@ -2,7 +2,7 @@
   <app-grid-item *ngIf="isGrid()" [item]='panorama'></app-grid-item>
   <app-list-item *ngIf="isList()" [item]='panorama'></app-list-item>
 </ng-template>
-<div class='col-md-12 text-center' *ngIf="panoramas | favoritePanoramas:filterSetting">
+<div class='no-data-label col-md-12 text-center' *ngIf="panoramas | favoritePanoramas:filterSetting">
   <h3>No data! <small>Please try again with new filter.</small></h3>
 </div>
 

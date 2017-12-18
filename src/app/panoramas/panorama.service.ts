@@ -7,7 +7,7 @@ import 'rxjs/add/operator/publishReplay';
 
 import { AppConfig } from '../app-config';
 import { Panorama, Response } from '../difinitions';
-import {isNullOrUndefined} from 'util';
+import { isNullOrUndefined } from 'util';
 
 @Injectable()
 export class PanoramaService {
@@ -24,7 +24,6 @@ export class PanoramaService {
     .refCount();
 
   public getPanoramas(): Observable<Array<Panorama>> {
-    // this.setFavoriteProperty();
     return this.panoramasCache$;
   }
 
