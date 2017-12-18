@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 import { PanoramaService } from '../../../panorama.service';
 import { Panorama } from '../../../../difinitions';
@@ -10,6 +10,7 @@ import { Panorama } from '../../../../difinitions';
 })
 export class DefaultItemComponent implements OnInit {
   @Input() public item: Panorama;
+  @Output() public favouriteChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public timestampFormat: string;
 
@@ -22,11 +23,13 @@ export class DefaultItemComponent implements OnInit {
   public addToFavorites(id: string): void {
     this.panoramaService.addFavorite(id);
     this.item.isFavorite = true;
+    this.favouriteChange.emit(this.item.isFavorite);
   }
 
   public removeFromFavorites(id: string): void {
     this.panoramaService.removeFavorite(id);
     this.item.isFavorite = false;
+    this.favouriteChange.emit(this.item.isFavorite);
   }
 
 }

@@ -8,4 +8,8 @@ export class AppPage {
   public getParagraphText(): any {
     return element(by.css('app-root h1')).getText();
   }
+
+  public getHeader(): any {
+    return element(by.css('navbar navbar-inverse'));
+  }
 }

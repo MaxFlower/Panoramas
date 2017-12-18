@@ -14,10 +14,18 @@ describe('MainContentComponent', () => {
   let settingsService: SettingsService;
   let compiled: any;
   let panoramasArray: Array<Panorama> = [
-    <Panorama>{},
-    <Panorama>{},
-    <Panorama>{},
-    <Panorama>{}
+    <Panorama>{
+      isFavorite: true
+    },
+    <Panorama>{
+      isFavorite: true
+    },
+    <Panorama>{
+      isFavorite: false
+    },
+    <Panorama>{
+      isFavorite: false
+    }
   ];
 
   beforeEach(async(() => {
@@ -68,6 +76,15 @@ describe('MainContentComponent', () => {
       expect(component.isList()).toBeFalsy();
       component.viewSetting = ViewSetting.List;
       expect(component.isList()).toBeTruthy();
+    }));
+
+    it('should update panoramas list',  async(() => {
+      component.panoramas = panoramasArray;
+      expect(component.filteredPanoramas.length).toBe(0);
+      settingsService.filterSetting = FilterSetting.OnlyFavorites;
+      expect(component.filteredPanoramas.length).toBe(2);
+      settingsService.filterSetting = FilterSetting.All;
+      expect(component.filteredPanoramas.length).toBe(4);
     }));
 
   });

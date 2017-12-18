@@ -1,8 +1,8 @@
-<ng-template ngFor let-panorama [ngForOf]="panoramas | favoritePanoramas:filterSetting">
-  <app-grid-item *ngIf="isGrid()" [item]='panorama'></app-grid-item>
-  <app-list-item *ngIf="isList()" [item]='panorama'></app-list-item>
+<ng-template ngFor let-panorama [ngForOf]="filteredPanoramas">
+  <app-grid-item *ngIf="isGrid()" [item]='panorama' (favouriteChange)="favouriteChange()"></app-grid-item>
+  <app-list-item *ngIf="isList()" [item]='panorama' (favouriteChange)="favouriteChange()"></app-list-item>
 </ng-template>
-<div class='no-data-label col-md-12 text-center' *ngIf="panoramas | favoritePanoramas:filterSetting">
+<div class='no-data-label col-md-12 text-center' *ngIf="!filteredPanoramas.length">
   <h3>No data! <small>Please try again with new filter.</small></h3>
 </div>
 

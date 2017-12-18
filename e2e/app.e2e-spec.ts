@@ -7,8 +7,8 @@ describe('untitled App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display header, sidebar and content', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getHeader()).toEqual('Favourite');
   });
 });
