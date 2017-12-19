@@ -54,11 +54,13 @@ describe('MainHeaderComponent', () => {
     it('should hide/show sidebar-button', async(() => {
       settingsService.sidebarVisibility = false;
       expect(component.isButtonAvailable).toEqual(true);
-      expect(compiled.querySelector('.nav-flex')).toBeDefined();
+      expect(compiled.querySelector('.nav-flex').getAttribute('class'))
+        .toMatch('nav-flex');
 
       settingsService.sidebarVisibility = true;
       expect(component.isButtonAvailable).toEqual(false);
-      expect(compiled.querySelector('.nav-flex')).toBeNull();
+      expect(compiled.querySelector('.nav-flex').getAttribute('class'))
+        .toMatch('nav-flex hide');
     }));
   });
 });

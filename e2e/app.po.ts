@@ -1,15 +1,31 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, promise, ElementFinder } from 'protractor';
 
 export class AppPage {
   public navigateTo(): any {
     return browser.get('/');
   }
 
-  public getParagraphText(): any {
-    return element(by.css('app-root h1')).getText();
+  public getHeaderText(): promise.Promise<string> {
+    return element(by.css('.navbar-brand')).getText();
   }
 
-  public getHeader(): any {
-    return element(by.css('navbar navbar-inverse'));
+  public getHeader(): ElementFinder {
+    return element(by.css('.navbar'));
+  }
+
+  public getSidebar(): ElementFinder {
+    return element(by.css('.sidebar-container'));
+  }
+
+  public getContent(): ElementFinder {
+    return element(by.css('.content-container'));
+  }
+
+  public getHideButton(): any {
+    return element(by.buttonText('Hide'));
+  }
+
+  public getShowSidebarButton(): any {
+    return element(by.buttonText('Show sidebar'));
   }
 }

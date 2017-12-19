@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="javascript:void(0)"><img alt="Brand" src="/assets/img/brand-logo.png"> {{ title }}</a>
     </div>
-    <div class="nav-flex" *ngIf="isButtonAvailable">
+    <div class="nav-flex" [ngClass]="{'hide': !isButtonAvailable}">
       <button type="button" class="btn btn-primary" (click)='showSidebar()'>Show sidebar</button>
     </div>
   </div>
