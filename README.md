@@ -1,5 +1,5 @@
 # Panoramas:
-Let's make a good client side.
+Let's make a good client side. Creater: Maksim Tsvetkov. [![Build Status](https://travis-ci.org/MaxFlower/Panoramas.svg?branch=master)](https://travis-ci.org/MaxFlower/Panoramas)
 
 ## Commands:
 
