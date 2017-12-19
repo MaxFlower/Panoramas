@@ -28,11 +28,11 @@ jobs:
     - script: "npm run build --prod"
     - stage: GitHub Release
       script: echo "Deploying to GitHub ..."
-    - bash ./.travis-deploy.sh
+#    - bash ./.travis-deploy.sh
 
-#      deploy:
-#        provider: pages
-#        skip_cleanup: true
-#        github_token: $GITHUB_TOKEN
-#        on:
-#          branch: master
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        on:
+          branch: master
