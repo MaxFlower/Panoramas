@@ -12,27 +12,26 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
+install:
+  - npm install  
+
 before_script:
   - npm install -g @angular/cli
 
-install:
-  - npm install
+script:
+  - npm run ci
+  - npm run build --prod  
 
 cache:
   directories:
     - node_modules
 
-jobs:
-  include:
-    - script: "npm run ci"
-    - script: "npm run build --prod"
-    - stage: GitHub Release
-      script: echo "Deploying to GitHub ..."
-    - bash ./.travis-deploy.sh
+before_deploy:
+  - cd ./dist
 
-#      deploy:
-#        provider: pages
-#        skip_cleanup: true
-#        github_token: $GITHUB_TOKEN
-#        on:
-#          branch: master
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master    
