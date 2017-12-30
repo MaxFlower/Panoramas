@@ -6,7 +6,7 @@ import { Config } from './difinitions/config';
 export class AppConfig {
 
   public appConfig: Config = {
-    apiUrl: 'http://api3-dev.panono.com/',
+    apiUrl: 'http://api3-dev.panono.com',
     timestampFormat: 'dd-MM-yyyy hh:mm'
   };
 }
