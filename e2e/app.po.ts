@@ -2,6 +2,7 @@ import { browser, by, element, promise, ElementFinder } from 'protractor';
 
 export class AppPage {
   public navigateTo(): any {
+    browser.ignoreSynchronization = true;
     return browser.get('/');
   }
 
